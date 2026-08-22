@@ -19,17 +19,24 @@
   --border: rgba(255, 255, 255, 0.08);
 }
 
-/* =================================
-   BODY
-================================= */
+html {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
 
 body {
+  width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+  overflow-x: hidden;
+
   font-family: "DM Sans", sans-serif;
   color: var(--text);
 
@@ -47,14 +54,21 @@ body {
     #0b0b0f;
 }
 
-/* Subtle grain */
+/* =================================
+   SUBTLE GRAIN
+================================= */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+
+  width: 100%;
+  height: 100%;
+
   pointer-events: none;
-  opacity: 0.035;
+
+  opacity: 0.025;
 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
@@ -72,6 +86,7 @@ h1 {
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(42px, 6vw, 76px);
   font-weight: 700;
+
   line-height: 0.95;
   letter-spacing: -4.5px;
   text-align: center;
@@ -99,7 +114,8 @@ h1 {
     0 8px 18px rgba(0, 0, 0, 0.35),
     0 18px 45px rgba(255, 107, 53, 0.14);
 
-  filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
+  filter:
+    drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
     drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
 
   transform: translateZ(0);
@@ -140,12 +156,11 @@ h1::before {
   opacity: 0.8;
 
   pointer-events: none;
-
   z-index: -1;
 }
 
 /* =================================
-   SUBTLE LIGHT SWEEP
+   LIGHT SWEEP
 ================================= */
 
 h1::after {
@@ -177,13 +192,14 @@ h1::after {
 }
 
 /* =================================
-   HOVER
+   TITLE HOVER
 ================================= */
 
 h1:hover {
   transform: translateY(-4px) scale(1.015);
 
-  filter: drop-shadow(0 0 18px rgba(255, 107, 53, 0.22))
+  filter:
+    drop-shadow(0 0 18px rgba(255, 107, 53, 0.22))
     drop-shadow(0 20px 35px rgba(0, 0, 0, 0.35));
 }
 
@@ -194,10 +210,8 @@ h1:hover {
 @keyframes titleEnter {
   0% {
     opacity: 0;
-
     transform: translateY(35px) scale(0.88);
-
-    filter: blur(14px) drop-shadow(0 0 0 transparent);
+    filter: blur(14px);
   }
 
   60% {
@@ -206,10 +220,10 @@ h1:hover {
 
   100% {
     opacity: 1;
-
     transform: translateY(0) scale(1);
-
-    filter: blur(0) drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
+    filter:
+      blur(0)
+      drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
       drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
   }
 }
@@ -256,7 +270,12 @@ h1:hover {
   border: 1px solid var(--border);
   border-radius: 36px;
 
-  background: linear-gradient(145deg, #19191f 0%, #111116 55%, #0e0e12 100%);
+  background: linear-gradient(
+    145deg,
+    #19191f 0%,
+    #111116 55%,
+    #0e0e12 100%
+  );
 
   box-shadow:
     0 45px 100px rgba(0, 0, 0, 0.65),
@@ -371,6 +390,8 @@ h1:hover {
 
   animation: rotate 10s linear infinite;
   animation-play-state: paused;
+
+  will-change: transform;
 }
 
 .music-container.play .img-container img {
@@ -432,6 +453,8 @@ h1:hover {
   margin-left: 55px;
 
   z-index: 5;
+
+  min-width: 0;
 }
 
 .action-btn {
@@ -442,13 +465,14 @@ h1:hover {
   align-items: center;
   justify-content: center;
 
+  flex-shrink: 0;
+
   margin: 0 9px;
 
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 50%;
 
   color: #9b9ba5;
-
   background: #19191f;
 
   font-size: 18px;
@@ -502,7 +526,11 @@ h1:hover {
 
   font-size: 27px;
 
-  background: linear-gradient(145deg, #ff8b58, #ff5c2f);
+  background: linear-gradient(
+    145deg,
+    #ff8b58,
+    #ff5c2f
+  );
 
   box-shadow:
     0 15px 35px rgba(255, 107, 53, 0.28),
@@ -532,7 +560,11 @@ h1:hover {
 
   color: #09090c;
 
-  background: linear-gradient(145deg, #ffa477, #ff6939);
+  background: linear-gradient(
+    145deg,
+    #ffa477,
+    #ff6939
+  );
 
   box-shadow:
     0 20px 45px rgba(255, 107, 53, 0.38),
@@ -590,6 +622,7 @@ h1:hover {
 
 .music-container.play .music-info {
   opacity: 1;
+
   transform: translateY(-100%);
 }
 
@@ -606,7 +639,9 @@ h1:hover {
   text-transform: capitalize;
 
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
 }
 
@@ -643,7 +678,12 @@ h1:hover {
 
   border-radius: inherit;
 
-  background: linear-gradient(90deg, #ff5c2f, #ff7a45, #ffab73);
+  background: linear-gradient(
+    90deg,
+    #ff5c2f,
+    #ff7a45,
+    #ffab73
+  );
 
   box-shadow: 0 0 12px rgba(255, 107, 53, 0.45);
 
@@ -678,6 +718,7 @@ h1:hover {
 
 .time {
   display: flex;
+
   justify-content: space-between;
 
   margin-top: 7px;
@@ -697,18 +738,23 @@ h1:hover {
 @media (max-width: 750px) {
   body {
     padding: 30px 15px;
+
     overflow-x: hidden;
   }
 
   h1 {
     font-size: clamp(32px, 7vw, 44px);
+
     margin-bottom: 100px;
+
     letter-spacing: -2.5px;
   }
 
   .music-container {
     width: min(680px, 100%);
+
     min-height: 220px;
+
     padding: 30px;
   }
 
@@ -768,13 +814,19 @@ h1:hover {
 
   h1 {
     font-size: 44px;
+
     line-height: 1;
+
     letter-spacing: -1.8px;
+
     margin-bottom: 85px;
+
+    max-width: 100%;
   }
 
   .music-container {
     width: 100%;
+
     min-height: 190px;
 
     padding: 24px 18px;
@@ -805,6 +857,8 @@ h1:hover {
 
   .navigation {
     margin-left: 14px;
+
+    min-width: 0;
   }
 
   .action-btn {
@@ -837,6 +891,7 @@ h1:hover {
 
   .music-info h4 {
     font-size: 14px;
+
     margin-bottom: 9px;
   }
 
@@ -851,6 +906,32 @@ h1:hover {
   .time {
     font-size: 9px;
   }
+
+  /* Reduce expensive effects on mobile */
+
+  h1::before {
+    filter: blur(20px);
+  }
+
+  h1::after {
+    display: none;
+  }
+
+  h1 {
+    filter: none;
+  }
+
+  .music-container {
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.55),
+      0 10px 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .img-container img {
+    box-shadow:
+      0 15px 30px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.07);
+  }
 }
 
 /* =================================
@@ -864,8 +945,11 @@ h1:hover {
 
   h1 {
     font-size: 39px;
+
     line-height: 1;
+
     letter-spacing: -1.2px;
+
     margin-bottom: 75px;
   }
 
@@ -928,6 +1012,7 @@ h1:hover {
 
   .music-info h4 {
     font-size: 12px;
+
     margin-bottom: 7px;
   }
 
@@ -943,8 +1028,11 @@ h1:hover {
 @media (max-width: 330px) {
   h1 {
     font-size: 26px;
+
     line-height: 1;
+
     letter-spacing: -1px;
+
     margin-bottom: 65px;
   }
 
@@ -1006,10 +1094,12 @@ h1:hover {
     justify-content: flex-start;
 
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   h1 {
     margin-bottom: 70px;
+
     font-size: 28px;
   }
 
