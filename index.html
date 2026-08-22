@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -9,36 +10,52 @@
 
     <title>Music Player</title>
 
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
     />
 
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- Page Title -->
     <h1>Music Player</h1>
 
+    <!-- Music Player Container -->
     <div class="music-container">
+
+      <!-- Song Information and Progress -->
       <div class="music-info">
         <h4 id="title"></h4>
 
-        <div class="progress-container" id="progress-container">
-          <div class="progress" id="progress"></div>
+        <!-- Progress Bar -->
+        <div
+          class="progress-container"
+          id="progress-container"
+        >
+          <div
+            class="progress"
+            id="progress"
+          ></div>
         </div>
 
+        <!-- Current Time and Song Duration -->
         <div class="time">
           <span id="currTime">00:00</span>
           <span id="durTime">00:00</span>
         </div>
       </div>
 
+      <!-- Audio Element -->
       <audio
         src="music/milad.mp3"
         id="audio"
       ></audio>
 
+      <!-- Album Artwork -->
       <div class="img-container">
         <img
           src="image/19e87e1a040fcef7a71dedfc69bebe83.400x400x1.jpg"
@@ -47,7 +64,10 @@
         />
       </div>
 
+      <!-- Music Controls -->
       <div class="navigation">
+
+        <!-- Previous Song Button -->
         <button
           id="prev"
           class="action-btn"
@@ -56,6 +76,7 @@
           <i class="fas fa-backward"></i>
         </button>
 
+        <!-- Play / Pause Button -->
         <button
           id="play"
           class="action-btn action-btn-big"
@@ -64,6 +85,7 @@
           <i class="fas fa-play"></i>
         </button>
 
+        <!-- Next Song Button -->
         <button
           id="next"
           class="action-btn"
@@ -71,9 +93,11 @@
         >
           <i class="fas fa-forward"></i>
         </button>
+
       </div>
     </div>
 
+    <!-- Main JavaScript File -->
     <script src="app.js"></script>
   </body>
 </html>
