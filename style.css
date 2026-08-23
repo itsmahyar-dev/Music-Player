@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,20 +11,7 @@
 
   user-select: none;
   -webkit-user-select: none;
-
   -webkit-tap-highlight-color: transparent;
-}
-
-:root {
-  --bg: #0b0b0f;
-  --surface: #141419;
-  --surface-2: #1b1b22;
-  --surface-3: #24242c;
-  --text: #f5f5f7;
-  --muted: #8b8b96;
-  --accent: #ff6b35;
-  --accent-2: #ff9f43;
-  --border: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -46,21 +37,57 @@ body {
 
   background:
     radial-gradient(
-      circle at 50% -10%,
-      rgba(255, 107, 53, 0.12),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(255, 159, 67, 0.07),
+      circle at 15% 15%,
+      rgba(91, 76, 255, 0.16),
       transparent 30%
     ),
-    #0b0b0f;
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(0, 212, 255, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(124, 58, 237, 0.08),
+      transparent 35%
+    ),
+    var(--bg);
 }
 
-/* =================================
-   SUBTLE GRAIN
-================================= */
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --bg: #070811;
+
+  --surface: rgba(18, 20, 35, 0.78);
+  --surface-2: rgba(24, 27, 46, 0.9);
+  --surface-3: rgba(32, 35, 58, 0.95);
+
+  --text: #f7f8ff;
+  --muted: #8d92aa;
+  --muted-2: #62687f;
+
+  --primary: #7c5cff;
+  --primary-light: #9b85ff;
+
+  --cyan: #00d9ff;
+  --blue: #4d7cff;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-light: rgba(255, 255, 255, 0.15);
+
+  --shadow:
+    0 35px 90px rgba(0, 0, 0, 0.55),
+    0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   BACKGROUND ATMOSPHERE
+========================================================= */
 
 body::before {
   content: "";
@@ -68,125 +95,125 @@ body::before {
   position: fixed;
   inset: 0;
 
-  width: 100%;
-  height: 100%;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(124, 92, 255, 0.08),
+      transparent 40%
+    );
+
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
 
   pointer-events: none;
 
   opacity: 0.035;
 
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+
+  z-index: -1;
 }
 
-/* =================================
+/* =========================================================
    TITLE
-================================= */
+========================================================= */
 
 h1 {
   position: relative;
   z-index: 10;
 
-  margin-bottom: 115px;
+  margin-bottom: 105px;
 
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(42px, 6vw, 76px);
+  font-size: clamp(44px, 7vw, 82px);
   font-weight: 700;
 
   line-height: 0.95;
-  letter-spacing: -4.5px;
+  letter-spacing: -5px;
   text-align: center;
 
   color: transparent;
 
-  background: linear-gradient(
-    115deg,
-    #ffffff 0%,
-    #ffffff 18%,
-    #fff5ef 30%,
-    #ffc8ad 43%,
-    #ff8b58 58%,
-    #ff6b35 73%,
-    #ff9f43 88%,
-    #ffd2a8 100%
-  );
+  background:
+    linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #dfe5ff 24%,
+      #a994ff 48%,
+      #6c8cff 72%,
+      #65e8ff 100%
+    );
 
   -webkit-background-clip: text;
   background-clip: text;
 
   text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.3),
-    0 2px 0 rgba(255, 255, 255, 0.08),
-    0 8px 18px rgba(0, 0, 0, 0.35),
-    0 18px 45px rgba(255, 107, 53, 0.14);
+    0 10px 35px rgba(0, 0, 0, 0.35),
+    0 0 45px rgba(124, 92, 255, 0.12);
 
-  filter:
-    drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
-    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
-
-  transform: translateZ(0);
-
-  animation: titleEnter 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: titleEnter 0.9s var(--ease) both;
 
   transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s var(--ease),
     filter 0.4s ease;
 }
-
-/* =================================
-   TITLE AURA
-================================= */
 
 h1::before {
   content: "";
 
   position: absolute;
-  top: 50%;
-  left: 50%;
 
-  width: 85%;
+  width: 130%;
   height: 180%;
+
+  left: 50%;
+  top: 50%;
 
   transform: translate(-50%, -50%);
 
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 107, 53, 0.16) 0%,
-    rgba(255, 107, 53, 0.08) 30%,
-    rgba(255, 107, 53, 0.025) 50%,
-    transparent 72%
-  );
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(124, 92, 255, 0.14),
+      rgba(0, 217, 255, 0.035) 35%,
+      transparent 70%
+    );
 
   filter: blur(35px);
 
-  opacity: 0.8;
+  z-index: -1;
 
   pointer-events: none;
-
-  z-index: -1;
 }
-
-/* =================================
-   LIGHT SWEEP
-================================= */
 
 h1::after {
   content: "";
 
   position: absolute;
-  top: -20%;
-  left: -30%;
 
-  width: 35%;
+  width: 45%;
   height: 140%;
 
-  transform: skewX(-18deg);
+  left: -50%;
+  top: -20%;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.18),
-    transparent
-  );
+  transform: skewX(-20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
 
   filter: blur(12px);
 
@@ -194,51 +221,35 @@ h1::after {
 
   pointer-events: none;
 
-  animation: titleShine 4s ease-in-out 1.2s infinite;
+  animation: titleShine 5s ease-in-out 1.5s infinite;
 }
-
-/* =================================
-   TITLE HOVER
-================================= */
 
 h1:hover {
   transform: translateY(-4px) scale(1.015);
 
   filter:
-    drop-shadow(0 0 18px rgba(255, 107, 53, 0.22))
-    drop-shadow(0 20px 35px rgba(0, 0, 0, 0.35));
+    drop-shadow(0 0 20px rgba(124, 92, 255, 0.25))
+    drop-shadow(0 0 40px rgba(0, 217, 255, 0.08));
 }
-
-/* =================================
-   TITLE ANIMATION
-================================= */
 
 @keyframes titleEnter {
   0% {
     opacity: 0;
-    transform: translateY(35px) scale(0.88);
-    filter: blur(14px);
-  }
-
-  60% {
-    opacity: 1;
+    transform: translateY(35px) scale(0.9);
+    filter: blur(12px);
   }
 
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-
-    filter:
-      blur(0)
-      drop-shadow(0 0 10px rgba(255, 107, 53, 0.12))
-      drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+    filter: blur(0);
   }
 }
 
 @keyframes titleShine {
   0%,
   55% {
-    left: -35%;
+    left: -50%;
     opacity: 0;
   }
 
@@ -248,45 +259,49 @@ h1:hover {
 
   80%,
   100% {
-    left: 115%;
+    left: 120%;
     opacity: 0;
   }
 }
 
-/* =================================
-   PLAYER
-================================= */
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
 
 .music-container {
   position: relative;
 
-  width: min(880px, calc(100% - 40px));
-  min-height: 300px;
+  width: min(920px, calc(100% - 40px));
+  min-height: 310px;
 
   display: flex;
   align-items: center;
 
-  padding: 42px;
+  padding: 46px;
 
   overflow: visible;
 
   border: 1px solid var(--border);
-  border-radius: 36px;
+  border-radius: 34px;
 
-  background: linear-gradient(
-    145deg,
-    #19191f 0%,
-    #111116 55%,
-    #0e0e12 100%
-  );
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 33, 55, 0.86),
+      rgba(10, 12, 24, 0.88)
+    );
 
-  box-shadow:
-    0 45px 100px rgba(0, 0, 0, 0.65),
-    0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  isolation: isolate;
 
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+    transform 0.45s var(--ease),
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
 }
 
 .music-container::before {
@@ -297,68 +312,112 @@ h1:hover {
 
   border-radius: inherit;
 
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.055),
-    transparent 30%,
-    transparent 70%,
-    rgba(255, 107, 53, 0.025)
-  );
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 25%,
+      transparent 70%,
+      rgba(124, 92, 255, 0.06)
+    );
 
   pointer-events: none;
+
+  z-index: -1;
+}
+
+.music-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: 70px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 92, 255, 0.16),
+      transparent 70%
+    );
+
+  filter: blur(35px);
+
+  pointer-events: none;
+
+  z-index: -1;
 }
 
 .music-container:hover {
-  transform: translateY(-6px);
+  transform: translateY(-7px);
+
+  border-color: var(--border-light);
 
   box-shadow:
-    0 55px 110px rgba(0, 0, 0, 0.72),
-    0 20px 40px rgba(0, 0, 0, 0.4);
+    0 45px 110px rgba(0, 0, 0, 0.65),
+    0 0 70px rgba(124, 92, 255, 0.06);
 }
 
-/* =================================
-   ALBUM ART
-================================= */
+/* =========================================================
+   ALBUM
+========================================================= */
 
 .img-container {
   position: relative;
 
-  width: 205px;
-  height: 205px;
+  width: 210px;
+  height: 210px;
 
   flex-shrink: 0;
 
   z-index: 3;
 }
 
+/* outer glow */
+
 .img-container::before {
   content: "";
 
   position: absolute;
+
   inset: -15px;
 
   border-radius: 50%;
 
-  border: 1px solid rgba(255, 107, 53, 0.15);
+  border: 1px solid rgba(124, 92, 255, 0.25);
 
   box-shadow:
-    0 0 0 8px rgba(255, 255, 255, 0.015),
-    0 0 40px rgba(255, 107, 53, 0.08);
+    0 0 0 7px rgba(255, 255, 255, 0.012),
+    0 0 45px rgba(124, 92, 255, 0.12),
+    0 0 80px rgba(0, 217, 255, 0.05);
 
-  transition: all 0.5s ease;
+  transition:
+    transform 0.5s var(--ease),
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
 }
+
+/* playing ring */
 
 .music-container.play .img-container::before {
-  border-color: rgba(255, 107, 53, 0.5);
+  border-color: rgba(124, 92, 255, 0.7);
 
   box-shadow:
-    0 0 0 8px rgba(255, 107, 53, 0.025),
-    0 0 45px rgba(255, 107, 53, 0.18);
+    0 0 0 7px rgba(124, 92, 255, 0.025),
+    0 0 40px rgba(124, 92, 255, 0.28),
+    0 0 80px rgba(0, 217, 255, 0.12);
 
-  animation: ringPulse 2s ease-in-out infinite;
+  animation: albumPulse 2.4s ease-in-out infinite;
 }
 
-@keyframes ringPulse {
+@keyframes albumPulse {
   0%,
   100% {
     transform: scale(1);
@@ -366,39 +425,49 @@ h1:hover {
   }
 
   50% {
-    transform: scale(1.035);
+    transform: scale(1.045);
     opacity: 1;
   }
 }
 
-/* =================================
+/* =========================================================
    ALBUM IMAGE
-================================= */
+========================================================= */
 
 .img-container img {
   position: absolute;
   inset: 0;
 
-  width: 205px;
-  height: 205px;
+  width: 210px;
+  height: 210px;
 
   object-fit: cover;
 
   border-radius: 50%;
-  border: 7px solid #0c0c10;
+
+  border: 7px solid #090b14;
 
   box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(255, 255, 255, 0.07);
+    0 25px 55px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
 
-  animation: rotate 10s linear infinite;
+  animation: rotate 12s linear infinite;
   animation-play-state: paused;
 
   will-change: transform;
+
+  transition:
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 .music-container.play .img-container img {
   animation-play-state: running;
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(124, 92, 255, 0.35),
+    0 0 45px rgba(124, 92, 255, 0.1);
 }
 
 @keyframes rotate {
@@ -411,17 +480,17 @@ h1:hover {
   }
 }
 
-/* =================================
+/* =========================================================
    VINYL CENTER
-================================= */
+========================================================= */
 
 .img-container::after {
   content: "";
 
   position: absolute;
 
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
 
   top: 50%;
   left: 50%;
@@ -430,23 +499,27 @@ h1:hover {
 
   border-radius: 50%;
 
-  background: radial-gradient(
-    circle,
-    #ffffff 0 18%,
-    var(--accent) 19% 43%,
-    #16161b 44% 100%
-  );
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0 15%,
+      var(--cyan) 16% 35%,
+      var(--primary) 36% 62%,
+      #0b0d18 63% 100%
+    );
 
-  border: 4px solid #0c0c10;
+  border: 4px solid #090b14;
 
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.45);
+  box-shadow:
+    0 0 20px rgba(0, 217, 255, 0.35),
+    0 0 30px rgba(124, 92, 255, 0.25);
 
   z-index: 5;
 }
 
-/* =================================
+/* =========================================================
    NAVIGATION
-================================= */
+========================================================= */
 
 .navigation {
   flex: 1;
@@ -455,12 +528,16 @@ h1:hover {
   align-items: center;
   justify-content: center;
 
-  margin-left: 55px;
+  margin-left: 65px;
 
   min-width: 0;
 
   z-index: 5;
 }
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .action-btn {
   width: 58px;
@@ -474,25 +551,33 @@ h1:hover {
 
   margin: 0 9px;
 
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 50%;
 
-  color: #9b9ba5;
-  background: #19191f;
+  color: #9ca2ba;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 41, 65, 0.9),
+      rgba(19, 21, 37, 0.95)
+    );
 
   font-size: 18px;
 
   cursor: pointer;
 
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.035);
+    0 12px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.04);
 
   transition:
-    transform 0.2s ease,
-    color 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.25s var(--ease),
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .action-btn:hover {
@@ -500,9 +585,18 @@ h1:hover {
 
   transform: translateY(-4px);
 
-  background: #202027;
+  border-color: rgba(124, 92, 255, 0.35);
 
-  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(48, 51, 80, 0.95),
+      rgba(24, 26, 45, 0.95)
+    );
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(124, 92, 255, 0.08);
 }
 
 .action-btn:active {
@@ -513,114 +607,115 @@ h1:hover {
   outline: none;
 }
 
-/* =================================
+/* =========================================================
    PLAY BUTTON
-================================= */
+========================================================= */
 
 .action-btn.action-btn-big {
   position: relative;
 
-  width: 82px;
-  height: 82px;
+  width: 84px;
+  height: 84px;
 
-  margin: 0 16px;
+  margin: 0 18px;
 
   border: 0;
 
-  color: #111116;
+  color: #ffffff;
 
-  font-size: 27px;
+  font-size: 28px;
 
-  background: linear-gradient(
-    145deg,
-    #ff8b58,
-    #ff5c2f
-  );
+  background:
+    linear-gradient(
+      145deg,
+      #8e78ff 0%,
+      #6952ef 50%,
+      #4d7cff 100%
+    );
 
   box-shadow:
-    0 15px 35px rgba(255, 107, 53, 0.28),
-    0 0 45px rgba(255, 107, 53, 0.08),
-    inset 0 2px 2px rgba(255, 255, 255, 0.35);
+    0 18px 40px rgba(84, 67, 230, 0.32),
+    0 0 45px rgba(124, 92, 255, 0.15),
+    inset 0 2px 2px rgba(255, 255, 255, 0.25);
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.3s var(--ease),
+    box-shadow 0.3s ease;
 }
 
 .action-btn.action-btn-big::before {
   content: "";
 
   position: absolute;
-  inset: -6px;
+  inset: -7px;
 
   border-radius: 50%;
 
-  border: 1px solid rgba(255, 107, 53, 0.2);
+  border: 1px solid rgba(124, 92, 255, 0.3);
 
-  transition: all 0.25s ease;
+  transition:
+    inset 0.3s var(--ease),
+    border-color 0.3s ease;
 }
 
 .action-btn.action-btn-big:hover {
-  transform: translateY(-6px) scale(1.05);
-
-  color: #09090c;
-
-  background: linear-gradient(
-    145deg,
-    #ffa477,
-    #ff6939
-  );
+  transform: translateY(-6px) scale(1.06);
 
   box-shadow:
-    0 20px 45px rgba(255, 107, 53, 0.38),
-    0 0 60px rgba(255, 107, 53, 0.15),
-    inset 0 2px 3px rgba(255, 255, 255, 0.45);
+    0 24px 50px rgba(84, 67, 230, 0.42),
+    0 0 70px rgba(124, 92, 255, 0.2),
+    inset 0 2px 3px rgba(255, 255, 255, 0.3);
 }
 
 .action-btn.action-btn-big:hover::before {
-  inset: -10px;
+  inset: -11px;
 
-  border-color: rgba(255, 107, 53, 0.3);
+  border-color: rgba(0, 217, 255, 0.3);
 }
 
 .action-btn.action-btn-big:active {
   transform: scale(0.93);
 }
 
-/* =================================
+/* =========================================================
    MUSIC INFO
-================================= */
+========================================================= */
 
 .music-info {
   position: absolute;
 
-  left: 42px;
+  left: 46px;
   top: 0;
 
-  width: calc(100% - 84px);
+  width: calc(100% - 92px);
 
-  padding: 17px 24px 18px 280px;
+  padding: 18px 26px 20px 285px;
 
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 0;
 
-  border-radius: 22px 22px 0 0;
+  border-radius: 24px 24px 0 0;
 
-  background: linear-gradient(
-    145deg,
-    rgba(30, 30, 36, 0.98),
-    rgba(18, 18, 23, 0.98)
-  );
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 31, 52, 0.97),
+      rgba(13, 15, 28, 0.98)
+    );
 
-  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 -15px 40px rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
   opacity: 0;
 
   transform: translateY(0);
 
   transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.3s ease;
+    transform 0.5s var(--ease),
+    opacity 0.35s ease;
 
   z-index: 0;
 }
@@ -630,6 +725,10 @@ h1:hover {
 
   transform: translateY(-100%);
 }
+
+/* =========================================================
+   SONG TITLE
+========================================================= */
 
 .music-info h4 {
   margin-bottom: 12px;
@@ -644,15 +743,13 @@ h1:hover {
   text-transform: capitalize;
 
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
-/* =================================
+/* =========================================================
    PROGRESS
-================================= */
+========================================================= */
 
 .progress-container {
   position: relative;
@@ -660,19 +757,25 @@ h1:hover {
   width: 100%;
   height: 5px;
 
-  border-radius: 20px;
+  border-radius: 50px;
 
-  background: #292930;
+  background:
+    rgba(255, 255, 255, 0.08);
 
   cursor: pointer;
 
   overflow: visible;
 
-  transition: height 0.2s ease;
+  transition:
+    height 0.2s ease,
+    background 0.2s ease;
 }
 
 .progress-container:hover {
   height: 7px;
+
+  background:
+    rgba(255, 255, 255, 0.11);
 }
 
 .progress {
@@ -683,16 +786,20 @@ h1:hover {
 
   border-radius: inherit;
 
-  background: linear-gradient(
-    90deg,
-    #ff5c2f,
-    #ff7a45,
-    #ffab73
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #6952ef,
+      #7c5cff 45%,
+      #00d9ff 100%
+    );
 
-  box-shadow: 0 0 12px rgba(255, 107, 53, 0.45);
+  box-shadow:
+    0 0 14px rgba(124, 92, 255, 0.5),
+    0 0 25px rgba(0, 217, 255, 0.15);
 
-  transition: width 0.1s linear;
+  transition:
+    width 0.1s linear;
 }
 
 .progress::after {
@@ -700,11 +807,11 @@ h1:hover {
 
   position: absolute;
 
-  right: -3px;
+  right: -4px;
   top: 50%;
 
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
 
   transform: translateY(-50%);
 
@@ -713,22 +820,29 @@ h1:hover {
   background: #ffffff;
 
   box-shadow:
-    0 0 0 3px rgba(255, 107, 53, 0.15),
-    0 0 15px rgba(255, 107, 53, 0.6);
+    0 0 0 3px rgba(124, 92, 255, 0.18),
+    0 0 16px rgba(0, 217, 255, 0.55);
+
+  transition:
+    transform 0.2s var(--ease);
 }
 
-/* =================================
+.progress-container:hover .progress::after {
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* =========================================================
    TIME
-================================= */
+========================================================= */
 
 .time {
   display: flex;
 
   justify-content: space-between;
 
-  margin-top: 7px;
+  margin-top: 8px;
 
-  color: #777781;
+  color: var(--muted-2);
 
   font-size: 10px;
   font-weight: 500;
@@ -736,9 +850,9 @@ h1:hover {
   letter-spacing: 0.5px;
 }
 
-/* =================================
+/* =========================================================
    TABLET
-================================= */
+========================================================= */
 
 @media (max-width: 750px) {
   body {
@@ -746,7 +860,7 @@ h1:hover {
   }
 
   h1 {
-    font-size: clamp(32px, 7vw, 44px);
+    font-size: clamp(34px, 8vw, 48px);
 
     margin-bottom: 100px;
 
@@ -756,20 +870,17 @@ h1:hover {
   .music-container {
     width: min(680px, 100%);
 
-    min-height: 220px;
+    min-height: 230px;
 
-    padding: 30px;
+    padding: 32px;
 
-    /* Lighter mobile/tablet shadow */
-    box-shadow:
-      0 25px 55px rgba(0, 0, 0, 0.55),
-      0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
   }
 
   .img-container,
   .img-container img {
-    width: 150px;
-    height: 150px;
+    width: 155px;
+    height: 155px;
   }
 
   .img-container::before {
@@ -777,66 +888,43 @@ h1:hover {
   }
 
   .navigation {
-    margin-left: 25px;
+    margin-left: 30px;
   }
 
   .action-btn {
-    width: 48px;
-    height: 48px;
+    width: 49px;
+    height: 49px;
 
     margin: 0 5px;
 
     font-size: 16px;
-
-    box-shadow:
-      0 6px 15px rgba(0, 0, 0, 0.25);
   }
 
   .action-btn.action-btn-big {
-    width: 68px;
-    height: 68px;
+    width: 69px;
+    height: 69px;
 
-    margin: 0 8px;
+    margin: 0 9px;
 
     font-size: 23px;
-
-    box-shadow:
-      0 10px 25px rgba(255, 107, 53, 0.25),
-      inset 0 2px 2px rgba(255, 255, 255, 0.25);
   }
 
   .music-info {
-    left: 30px;
+    left: 32px;
 
-    width: calc(100% - 60px);
+    width: calc(100% - 64px);
 
-    padding: 17px 24px 18px 205px;
-  }
-
-  /* Disable expensive title effects */
-  h1::before,
-  h1::after {
-    display: none;
-  }
-
-  h1 {
-    filter: none;
-  }
-
-  /* Disable hover animations on smaller screens */
-  .music-container:hover {
-    transform: none;
-  }
-
-  .action-btn:hover,
-  .action-btn.action-btn-big:hover {
-    transform: none;
+    padding:
+      17px
+      24px
+      18px
+      215px;
   }
 }
 
-/* =================================
+/* =========================================================
    MOBILE
-================================= */
+========================================================= */
 
 @media (max-width: 520px) {
   body {
@@ -847,29 +935,27 @@ h1:hover {
     overflow-x: hidden;
   }
 
-  /* Remove expensive grain on mobile */
-  body::before {
+  body::after {
     display: none;
   }
 
   h1 {
-    font-size: 44px;
+    font-size: 42px;
 
     line-height: 1;
 
-    letter-spacing: -1.8px;
+    letter-spacing: -2px;
 
-    margin-bottom: 85px;
-
-    max-width: 100%;
+    margin-bottom: 82px;
 
     filter: none;
 
     animation: none;
+  }
 
-    text-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.4),
-      0 8px 20px rgba(255, 107, 53, 0.1);
+  h1::before,
+  h1::after {
+    display: none;
   }
 
   .music-container {
@@ -879,15 +965,20 @@ h1:hover {
 
     padding: 24px 18px;
 
-    border-radius: 28px;
+    border-radius: 27px;
 
     box-shadow:
-      0 20px 45px rgba(0, 0, 0, 0.5),
-      0 8px 20px rgba(0, 0, 0, 0.3);
+      0 25px 55px rgba(0, 0, 0, 0.5),
+      0 0 35px rgba(124, 92, 255, 0.04);
   }
 
-  .music-container::before {
-    background: rgba(255, 255, 255, 0.015);
+  .music-container::after {
+    width: 150px;
+    height: 150px;
+
+    left: 35px;
+
+    filter: blur(25px);
   }
 
   .img-container,
@@ -901,7 +992,7 @@ h1:hover {
 
     box-shadow:
       0 0 0 5px rgba(255, 255, 255, 0.01),
-      0 0 20px rgba(255, 107, 53, 0.05);
+      0 0 25px rgba(124, 92, 255, 0.08);
   }
 
   .img-container::after {
@@ -911,14 +1002,14 @@ h1:hover {
     border-width: 3px;
 
     box-shadow:
-      0 0 10px rgba(255, 107, 53, 0.3);
+      0 0 10px rgba(0, 217, 255, 0.35);
   }
 
   .img-container img {
     border-width: 5px;
 
     box-shadow:
-      0 12px 25px rgba(0, 0, 0, 0.5),
+      0 14px 28px rgba(0, 0, 0, 0.5),
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
@@ -937,7 +1028,7 @@ h1:hover {
     font-size: 14px;
 
     box-shadow:
-      0 5px 12px rgba(0, 0, 0, 0.25);
+      0 6px 14px rgba(0, 0, 0, 0.25);
   }
 
   .action-btn.action-btn-big {
@@ -949,7 +1040,7 @@ h1:hover {
     font-size: 21px;
 
     box-shadow:
-      0 10px 25px rgba(255, 107, 53, 0.22),
+      0 12px 28px rgba(84, 67, 230, 0.3),
       inset 0 2px 2px rgba(255, 255, 255, 0.2);
   }
 
@@ -962,12 +1053,16 @@ h1:hover {
 
     width: calc(100% - 36px);
 
-    padding: 14px 16px 14px 140px;
+    padding:
+      14px
+      16px
+      14px
+      140px;
 
-    border-radius: 18px 18px 0 0;
+    border-radius: 19px 19px 0 0;
 
     box-shadow:
-      0 -5px 18px rgba(0, 0, 0, 0.15);
+      0 -7px 20px rgba(0, 0, 0, 0.15);
   }
 
   .music-info h4 {
@@ -984,28 +1079,30 @@ h1:hover {
     height: 4px;
   }
 
-  .progress {
-    box-shadow:
-      0 0 7px rgba(255, 107, 53, 0.3);
-  }
-
   .progress::after {
     width: 9px;
     height: 9px;
 
     box-shadow:
-      0 0 0 2px rgba(255, 107, 53, 0.12),
-      0 0 8px rgba(255, 107, 53, 0.35);
+      0 0 0 2px rgba(124, 92, 255, 0.15),
+      0 0 10px rgba(0, 217, 255, 0.4);
   }
 
   .time {
     font-size: 9px;
   }
+
+  /* disable desktop hover behavior */
+  .music-container:hover,
+  .action-btn:hover,
+  .action-btn.action-btn-big:hover {
+    transform: none;
+  }
 }
 
-/* =================================
+/* =========================================================
    SMALL MOBILE
-================================= */
+========================================================= */
 
 @media (max-width: 390px) {
   body {
@@ -1013,13 +1110,11 @@ h1:hover {
   }
 
   h1 {
-    font-size: 39px;
+    font-size: 37px;
 
-    line-height: 1;
+    letter-spacing: -1.4px;
 
-    letter-spacing: -1.2px;
-
-    margin-bottom: 75px;
+    margin-bottom: 72px;
   }
 
   .music-container {
@@ -1074,7 +1169,11 @@ h1:hover {
 
     width: calc(100% - 24px);
 
-    padding: 12px 12px 12px 108px;
+    padding:
+      12px
+      12px
+      12px
+      108px;
 
     border-radius: 15px 15px 0 0;
   }
@@ -1090,19 +1189,17 @@ h1:hover {
   }
 }
 
-/* =================================
+/* =========================================================
    VERY SMALL PHONES
-================================= */
+========================================================= */
 
 @media (max-width: 330px) {
   h1 {
-    font-size: 26px;
-
-    line-height: 1;
+    font-size: 28px;
 
     letter-spacing: -1px;
 
-    margin-bottom: 65px;
+    margin-bottom: 63px;
   }
 
   .music-container {
@@ -1152,9 +1249,9 @@ h1:hover {
   }
 }
 
-/* =================================
+/* =========================================================
    LANDSCAPE MOBILE
-================================= */
+========================================================= */
 
 @media (max-height: 500px) and (orientation: landscape) {
   body {
@@ -1169,7 +1266,7 @@ h1:hover {
   h1 {
     margin-bottom: 70px;
 
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .music-container {
@@ -1177,19 +1274,13 @@ h1:hover {
   }
 }
 
-/* =================================
+/* =========================================================
    TOUCH DEVICES
-================================= */
+========================================================= */
 
 @media (hover: none) and (pointer: coarse) {
-  .music-container:hover {
-    transform: none;
-  }
-
-  .action-btn:hover {
-    transform: none;
-  }
-
+  .music-container:hover,
+  .action-btn:hover,
   .action-btn.action-btn-big:hover {
     transform: none;
   }
@@ -1197,11 +1288,31 @@ h1:hover {
   .progress-container:hover {
     height: 5px;
   }
+
+  .action-btn:hover {
+    color: #9ca2ba;
+
+    border-color: rgba(255, 255, 255, 0.08);
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(38, 41, 65, 0.9),
+        rgba(19, 21, 37, 0.95)
+      );
+  }
+
+  .action-btn.action-btn-big:hover {
+    box-shadow:
+      0 18px 40px rgba(84, 67, 230, 0.32),
+      0 0 45px rgba(124, 92, 255, 0.15),
+      inset 0 2px 2px rgba(255, 255, 255, 0.25);
+  }
 }
 
-/* =================================
-   REDUCED MOTION
-================================= */
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1209,7 +1320,9 @@ h1:hover {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+
     scroll-behavior: auto !important;
+
     transition-duration: 0.01ms !important;
   }
 }
